@@ -1,6 +1,6 @@
-// Reab Alnitaifi
+// Reabaln
 // Managed bean for Survey.xhtml that has a reference for Student model
-package swe645.hw3.service;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
