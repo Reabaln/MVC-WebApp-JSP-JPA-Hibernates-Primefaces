@@ -1,7 +1,7 @@
-////Reab Alnitaifi
+////Reabaln
 // Model object for the Winning Result. it has
 //properties and setters/getters
-package swe645.hw3.model;
+
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
