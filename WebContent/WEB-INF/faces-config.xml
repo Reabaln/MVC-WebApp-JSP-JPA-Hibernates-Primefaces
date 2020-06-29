@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--REAB ALNITAIFI  -->
+<!-- Configuration file that contain the applicaton's interaction and navigation -->
+
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+    
+    
+<!--Registering the managed beans  -->
+
+<managed-bean eager="true">
+    <managed-bean-name> test </managed-bean-name>
+    <managed-bean-class> swe645.hw3.service.test </managed-bean-class>
+    <managed-bean-scope> request </managed-bean-scope>
+  
+</managed-bean>
+
+<managed-bean eager="true">
+    <managed-bean-name> WinningResult </managed-bean-name>
+    <managed-bean-class> swe645.hw3.model.WinningResult </managed-bean-class>
+    <managed-bean-scope> view </managed-bean-scope>
+ 
+</managed-bean>
+
+<managed-bean eager="true">
+    <managed-bean-name> Student </managed-bean-name>
+    <managed-bean-class> swe645.hw3.model.Student </managed-bean-class>
+    <managed-bean-scope> request </managed-bean-scope>
+</managed-bean>
+
+<managed-bean eager="true">
+    <managed-bean-name> SurveyBean </managed-bean-name>
+    <managed-bean-class> swe645.hw3.service.SurveyBean </managed-bean-class>
+    <managed-bean-scope> request </managed-bean-scope>
+</managed-bean>
+
+<!-- Navigation rules  -->
+<navigation-rule>
+	<from-view-id>/Survey.xhtml</from-view-id>
+	<navigation-case>
+	<from-outcome>WinnerAcknowledgement</from-outcome>
+	<to-view-id>/WinnerAcknowledgement.xhtml</to-view-id>
+	</navigation-case>
+	
+	<navigation-case>
+	<from-outcome>SimpleAcknowledgement</from-outcome>
+	<to-view-id>/SimpleAcknowledgement.xhtml</to-view-id>
+	</navigation-case>
+</navigation-rule>
+</faces-config>

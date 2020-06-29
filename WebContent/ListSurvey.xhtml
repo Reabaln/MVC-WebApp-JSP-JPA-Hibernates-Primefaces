@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title> Survey List</title>
+<link type="text/css" rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.SurveyTable {   
+   border-collapse:collapse;
+   border:2px solid #1D232F;
+}
+
+.SurveyTableHeader {
+   text-align:center;
+   background:none repeat scroll 0 0 #d0d9d8;
+   border-bottom:1px solid #000000;  
+   padding:2px;
+}
+
+.SurveyTableRow1 {
+   text-align:center;
+   background:none repeat scroll 0 0 #FFFFFFF;	
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+  <h:dataTable id="SurveyTable" value="#{SurveyBean.schoolListFromDb()}" var="Student1" styleClass = "SurveyTable"
+            headerClass = "SurveyTableHeader"
+            rowClasses = "SurveyTableRow1">
+            <h:column>
+                <f:facet name="header">Survey Id</f:facet>
+                <h:outputText value="#{Student1.surveyId}" />                
+            </h:column>
+            <h:column>
+                <f:facet name="header">First Name</f:facet>
+                <h:outputText value="#{Student1.firstName}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Last Name</f:facet>
+                <h:outputText value="#{Student1.lastName}" />                
+            </h:column>
+            <h:column>
+                <f:facet name="header">Address</f:facet>
+                <h:outputText value="#{Student1.address}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">City</f:facet>
+                <h:outputText value="#{Student1.city}" />                
+            </h:column>
+            <h:column>
+                <f:facet name="header">State</f:facet>
+                <h:outputText value="#{Student1.state}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">ZIP</f:facet>
+                <h:outputText value="#{Student1.zip}" />                
+            </h:column>
+            <h:column>
+                <f:facet name="header">Phone</f:facet>
+                <h:outputText value="#{Student1.phone}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Email</f:facet>
+                <h:outputText value="#{Student1.email}" />                
+            </h:column>
+            <h:column>
+                <f:facet name="header">Survey Date</f:facet>
+                <h:outputText value="#{Student1.dateOfSurvey}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Why?</f:facet>
+                <h:outputText value="#{Student1.howLike}" />                
+            </h:column>
+            <h:column>
+                <f:facet name="header">Interests?</f:facet>
+                <h:outputText value="#{Student1.interests}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Recommendation</f:facet>
+                <h:outputText value="#{Student1.recommendation}" />                
+            </h:column>
+            <h:column>
+                <f:facet name="header">Raffle</f:facet>
+                <h:outputText value="#{Student1.raffle}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Start Date</f:facet>
+                <h:outputText value="#{Student1.startDate}" />                
+            </h:column>
+            
+          
+        </h:dataTable>
+
+</body>
+</html>

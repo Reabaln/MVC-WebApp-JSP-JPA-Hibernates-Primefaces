@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Student Survey</title>
+  <link type="text/css" rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+</h:head>
+<body>
+
+
+	<h:form>
+	<p:messages id="messages" showDetail="true" closable="true">
+    </p:messages>
+	<div class="w3-light-grey">
+	<h1 class=" w3-center w3-content">Prospective student survey form</h1>
+	<p:panelGrid columns="4" layout="grid" class="w3-container w3-content" >
+	    <p:outputLabel for="firstName" value="First Name:" class="w3-right" style="font-weight:bold"/>
+	    <p:inputText id="firstName" value="#{Student.firstName}" required="true" maxlength="15"  >
+            <p:keyFilter regEx="/[a-z_]/i"/>  
+    	</p:inputText>
+	 
+	    <p:outputLabel for="lastName" value="Last Name:" class="w3-right" style="font-weight:bold"  />
+	    <p:inputText  value="#{Student.lastName}" id="lastName" required="true" maxlength="15" >
+	        <p:keyFilter regEx="/[a-z_]/i"/>  
+    	</p:inputText>
+	    
+	    <p:outputLabel for="streetAddress" value="Street Address:" class="w3-right" style="font-weight:bold" />
+	    <p:inputText  value="#{Student.address}" id="streetAddress" required="true" maxlength="30" >
+	    	<p:keyFilter regEx="/[a-z0-9_]/i"/>   
+	    </p:inputText>
+	    
+	    <p:outputLabel for="city" value="City:" class="w3-right" style="font-weight:bold" />
+	    <p:inputText id="city" value="#{Student.city}" required="true">
+	    	<p:keyFilter regEx="/[a-z_]/i"/>   
+	    </p:inputText>
+	    
+	    <p:outputLabel for="state" value="State:" class="w3-right" style="font-weight:bold" />
+	    <p:inputText id="state" value="#{Student.state}" required="true">
+	    	<p:keyFilter regEx="/[a-z_]/i"/>   
+	    </p:inputText>
+	    
+	    <p:outputLabel for="zip" value="ZIP:" class="w3-right" style="font-weight:bold" />
+	    <p:inputText id="zip" value="#{Student.zip}" required="true" maxlength="5">
+	    	<p:keyFilter regEx="/[\d\-\.]/"/>   
+	    	<f:validateLength minimum="5" maximum="5" />
+	    </p:inputText>
+	    
+	    <p:outputLabel for="phone" value="Telephone Number:" class="w3-right" style="font-weight:bold"/>
+	    <p:inputMask mask="(999)999-9999" id="phone" value="#{Student.phone}" required="true" />
+	    
+	    <p:outputLabel for="email" value="Email:" class="w3-right" style="font-weight:bold" />
+	    <p:inputText id="email" value="#{Student.email}" required="true" class="textarea"
+	    		requiredMessage="Please enter your email address."
+				validatorMessage="Invalid email format">
+	    		<f:validateRegex
+				pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+		</p:inputText>
+	    
+	    <p:outputLabel for="surveyDate" value="Date of Survey:" class="w3-right" style="font-weight:bold" />
+	    <p:calendar  id="surveyDate" value="#{Student.dateOfSurvey}" required="true" />
+	</p:panelGrid>
+	
+	<p:panelGrid columns="4" layout="grid" class="w3-container w3-content" ><p:outputLabel for="likeMost" value="What did you like the most about GMU campus?"  style="font-weight:bold" />
+	    <p:selectManyCheckbox id="likeMost" value="#{Student.howLike}"  layout="responsive" columns="1">
+	        <f:selectItem itemLabel="Students" itemValue="Students" />
+	        <f:selectItem itemLabel="Location" itemValue="Location" />
+	        <f:selectItem itemLabel="Campus" itemValue="Campus" />
+	        <f:selectItem itemLabel="Atmosphere" itemValue="Atmosphere" />
+	        <f:selectItem itemLabel="Dorm rooms" itemValue="Dorm rooms" />
+	        <f:selectItem itemLabel="Sports" itemValue="Sports" />
+    	</p:selectManyCheckbox>
+    
+    	<p:outputLabel for="interested" value="How did you become interested in GMU?"  style="font-weight:bold" />
+        <p:selectOneRadio id="interested" value="#{Student.interests}" layout="responsive" columns="1">
+            <f:selectItem itemLabel="Friends" itemValue="Friends" />
+            <f:selectItem itemLabel="TV" itemValue="TV" />
+            <f:selectItem itemLabel="Internet" itemValue="Internet" />
+            <f:selectItem itemLabel="Other" itemValue="Other" />
+        </p:selectOneRadio>
+        
+       <p:outputLabel for="likelyhood" value="How Likely are you going to recommend the school to others?  "  style="font-weight:bold" />   
+       <p:autoComplete id="likelyhood" dropdown="true" value="#{Student.recommendation}"  completeMethod="#{SurveyBean.AutoListLiklely()}"/>
+ 
+       <p:outputLabel for="raffle" value="  Enter at least ten comma separated numbers ranging from 1 through 100:  "  style="font-weight:bold" />
+	   <p:inputText id="raffle" value="#{Student.raffle}" />
+
+	   <p:outputLabel for="expectedDate" value="Expected Start Date: "  style="font-weight:bold"  />
+	   <p:calendar id="expectedDate"  value="#{Student.startDate}"/>
+
+	</p:panelGrid>
+
+	<div class="w3 container w3-center w3-margin">
+	<h:commandButton value = "Submit"  action="#{SurveyBean.createNewSurvey(Student)}" onclick = "alert('Form will be submitted');" class="w3-button w3-black w3-padding-large w3-margin-bottom"/> &nbsp;
+	<h:commandButton value = "Cancel" onclick = "alert('Canceling form..');" immediate="true" class="w3-button w3-black w3-padding-large w3-margin-bottom" action="Survey" /> 
+	</div>
+	
+	</div>
+	</h:form>
+	
+</body>
+</html>

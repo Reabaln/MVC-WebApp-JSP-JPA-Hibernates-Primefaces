@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Acknowledgement</title>
+<link type="text/css" rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+</h:head>
+<h:body>
+
+<div class="w3-card w3-container w3-light-grey">
+
+<p:outputLabel value="Thank you #{Student.lastName},  #{Student.firstName}! Your information has been successfully received. "  style="font-weight:bold" />
+	
+</div>
+<div class="w3-card w3-grey">
+<p:panelGrid columns="2" layout="grid"  >
+	    <p:outputLabel for="mean" value="Mean:" class="w3-left" style="font-weight:bold"/>
+	   	<p:outputLabel id="mean" value="#{SurveyBean.winningresult.mean}" class="w3-left" style="font-weight:bold"/>
+	   
+	    <p:outputLabel for="standardDeviation" value="Standard Deviation:" class="w3-left" style="font-weight:bold"  />
+	 	<p:outputLabel id="standardDeviation" value="#{SurveyBean.winningresult.standardDeviation}" class="w3-left" style="font-weight:bold"  />
+	 
+	    </p:panelGrid>
+	    
+	    </div>
+</h:body>
+</html>
