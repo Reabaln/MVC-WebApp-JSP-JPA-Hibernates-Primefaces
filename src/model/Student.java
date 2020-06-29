@@ -1,7 +1,7 @@
-//Reab Alnitaifi
+//Reabaln
 // Model object for the Student's survey. it has
 //properties and setters/getters
-package swe645.hw3.model;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
