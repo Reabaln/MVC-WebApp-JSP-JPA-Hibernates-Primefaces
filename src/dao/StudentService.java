@@ -1,7 +1,7 @@
-//Reab Alnitaifi
+//Reabaln
 // Class that encapsulates business logic to store and read the
 //Survey data to/from a database table.
-package swe645.hw3.dao;
+
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -14,7 +14,7 @@ import swe645.hw3.model.WinningResult;
 
 public class StudentService {
 	
-    private static final String PERSISTENCE_UNIT_NAME = "SWE645";   
+    private static final String PERSISTENCE_UNIT_NAME = "name";   
     private static EntityManager entityMgrObj = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME).createEntityManager();
     private static EntityTransaction transactionObj = entityMgrObj.getTransaction();
 
